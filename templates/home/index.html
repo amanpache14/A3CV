@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>HomePage</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="icon" href="{{url_for('static', filename = 'imgs/home/log.jpg')}}" type="image/x-icon">
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Lato", sans-serif;
+    }
+    
+    .w3-bar,
+    h1,
+    button {
+        font-family: "Montserrat", sans-serif;
+    }
+    
+    .fa-anchor,
+    .fa-coffee {
+        font-size: 200px;
+    }
+</style>
+
+<body>
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+            <a class="
+            w3-bar-item
+            w3-button
+            w3-hide-medium
+            w3-hide-large
+            w3-right
+            w3-padding-large
+            w3-hover-white
+            w3-large
+            w3-red
+          " href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i
+        ></a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a
+        >
+        <a
+          href="{{url_for('xray')}}"
+          class="
+            w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white
+          "
+          >X-ray infection</a
+        >
+        <a
+          href="{{url_for('sociald')}}"
+          class="
+            w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white
+          "
+          >Social distancing</a
+        >
+        <a
+          href="{{url_for('maskd')}}"
+          class="
+            w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white
+          "
+          >Facemask detection</a
+        >
+      </div>
+
+      <!-- Navbar on small screens -->
+      <div
+        id="navDemo"
+        class="
+          w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large
+        "
+      >
+        <a href="#" class="w3-bar-item w3-button w3-padding-large"
+          >X-ray infection</a
+        >
+        <a href="#" class="w3-bar-item w3-button w3-padding-large"
+          >Social distancing</a
+        >
+        <a href="#" class="w3-bar-item w3-button w3-padding-large"
+          >Facemask detection</a
+        >
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-red w3-center" style="padding: 50px 16px">
+      <img style="margin-top: 10px;height: 200px;box-shadow:0px 0px 20px rgb(255, 136, 0);border-radius: 30px;" src="{{url_for('static', filename = 'imgs/home/log.jpg')}}" alt="logo" />
+      <h1 class="w3-margin w3-jumbo">A3 Computer Vision</h1>
+    </header>
+
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div class="w3-twothird">
+          <h1>X-ray Lung Infection Detection</h1>
+
+          <h5 class="w3-padding-32">
+            This utility will help doctors/Radiologist detection of Lung
+            infection for Multiple frontal chest X-RAYS as we implement the
+            trained model for More than one Image File.​This Lung infection
+            detection works on sequential Deep learning model.
+          </h5>
+
+          <p class="w3-text-grey">
+            <br />This module will serve in detection of lung infection and will
+            be beneficial to X-RAY radiologist as their time on observing lung
+            patients X-RAY will get saved.This Lung infection detection works on
+            sequential Deep learning model, Trained on TensorFlow GPU with
+            around 500,000 parameters for classification of 3 classes NORMAL |
+            PNEUMONIA | COVID-19.
+          </p>
+        </div>
+
+        <div class="w3-third w3-center">
+          <img
+            src="{{url_for('static', filename = 'imgs/xray/lung2.jpg')}}"
+            style="margin-left: 100px; width: 400px; margin-top: 50px"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Grid -->
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div class="w3-third w3-center">
+          <img
+            src="{{url_for('static', filename = 'imgs/xray/sd3.png')}}"
+            style="margin-left: -150px; width: 400px; margin-top: 110px"
+          />
+        </div>
+
+        <div class="w3-twothird">
+          <h1>Realtime Social Distancing</h1>
+          <h5 class="w3-padding-32">
+            Our manuscript focuses on detecting if the people around are
+            maintaining social distancing or not. Using our own self developed
+            for detecting the frame of a person and displaying labels, they are
+            marked as safe or unsafe if the distance is less than a certain
+            value. This system can be used for monitoring people via video
+            surveillance in CCTV. ​
+          </h5>
+
+          <p class="w3-text-grey">
+            From this module Social Distancing violations will get detected and
+            warning highlight will be shown, along with the person who is
+            violating the social distancing Rule.​This module is also based on
+            deep learning object detection. The only thing we used here are
+            pretrained weights from yolo darknet as which is used for people
+            detection.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Third Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div class="w3-twothird">
+          <h1>Facemask Detection</h1>
+
+          <h5 class="w3-padding-32">
+            This Module is able to detect if the person is wearing face mask or
+            not, it will be good for the surveillance were wearing facemask is
+            mandatory specially in this COVID pandemic situation wearing face
+            mask is Necessary so the surveillance manager can warn those who
+            aren’t wearing facemask without need of observing everyone face.​
+          </h5>
+
+          <p class="w3-text-grey">
+            <br />In this module, we will be developing a face mask detector
+            which can prove to be beneficial in distinguishing between faces
+            with masks and faces with no masks. In this report, we have proposed
+            a neural network to classify presence of a face mask.​This Face Mask
+            detection module works on Deep learning Sequential model trained on
+            TensorFlow GPU with 14,671,252 parameters for classification of two
+            classes, Masked and unmasked.
+          </p>
+        </div>
+
+        <div class="w3-third w3-center">
+          <img
+            src="{{url_for('static', filename = 'imgs/xray/fm.jpg')}}"
+            style="margin-left: 100px; width: 400px; margin-top: 110px"
+          />
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <!-- Footer -->
+    <footer style="background-color: black;"class="w3-container w3-padding-64 w3-center w3-opacity">
+      <div class="w3-xlarge w3-padding-32">
+       <p style="margin-bottom:-80px;width: 100%;height:100px;color: white;padding: 20px;"><b>Team Members: Aman Pache || Ashwini Chimurkar || Amartya Dudhe<b></p>
+       
+    </footer>
+
+    <script>
+      // Used to toggle the menu on small screens when clicking on the menu button
+      function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+    </script>
+  </body>
+</html>

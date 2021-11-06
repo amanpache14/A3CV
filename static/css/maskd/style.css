@@ -1,0 +1,103 @@
+.body {
+    width: min-content;
+    height: max-content;
+    background-color: #ffb200;
+    margin-left: 100px;
+}
+
+#maincontainer {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    margin-top: 355px;
+    margin-left: 110px;
+    border: 1px solid hsl(0, 100%, 50%);
+    border-radius: 20px;
+    text-align: justify;
+}
+
+.thecard {
+    position: absolute;
+    height: max-content;
+    width: max-content;
+    margin-top: -100px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.thecard:hover {
+    transform: rotatey(180deg);
+}
+
+.thefront {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    text-align: start;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 10px;
+    padding-left: 10px;
+    background: white;
+    color: #333;
+}
+
+.theback {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #ffba01;
+    backface-visibility: hidden;
+    text-align: start;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 10px;
+    padding-left: 10px;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.button {
+    margin-top: 10px;
+    background-color: #ffba01;
+    height: 50px;
+    width: 15%;
+    font-size: 10px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: Uppercase;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-left: 150px;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: #fff;
+    background: linear-gradient(to left, #13f1fc 0%, #0470dc 105%);
+}
+
+.div {
+    margin-top: -460px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type=submit] {
+    background: none;
+    border: none;
+    pointer: default;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}

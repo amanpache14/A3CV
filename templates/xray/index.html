@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X-RAY</title>
+    <link href="{{ url_for('static', filename='css/xray/style.css') }}" rel="stylesheet" />
+    <script src="{{ url_for('static', filename='js/xray/script.js') }}"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{url_for('static', filename = 'imgs/home/log.jpg')}}" type="image/x-icon">
+</head>
+
+<body style="background-color: #ff5252 ;">
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+            <a class="
+            w3-bar-item
+            w3-button
+            w3-hide-medium
+            w3-hide-large
+            w3-right
+            w3-padding-large
+            w3-hover-white
+            w3-large
+            w3-red
+          " href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i
+        ></a>
+            <a href="{{url_for('home')}}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white-hover">Home</a
+        >
+        <a
+          href="{{url_for('xray')}}"
+          class="
+            w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white
+          "
+          >X-Ray infection</a
+        >
+        <a
+          href="{{url_for('sociald')}}"
+          class="
+            w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white
+          "
+          >Social distancing</a
+        >
+        <a
+          href="{{url_for('maskd')}}"
+          class="
+            w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white
+          "
+          >Facemask detection</a
+        >
+      </div>
+    <div class="body" style="height: 650px; ;">
+        <form action="/xray" method="POST" enctype="multipart/form-data" >
+        <div class="form-input" style="margin-top: 20px;">
+          <h1 
+          style="
+          margin-top: 5px;
+          margin-left:260px;
+          padding: 2px;
+          font-size:51px;
+          color: darkgreen;
+          font-family: 'PT Sans';
+          font-weight: 600;
+          text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191,
+          1px 3px 1px #919191, 1px 4px 1px #919191, 1px 5px 1px #919191,
+          1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 1px #919191,
+          1px 9px 1px #919191, 1px 20px 6px rgba(0, 0, 0, 0.5),
+          1px 22px 8px rgba(0, 0, 0, 0.4), 1px 24px 10px rgba(0, 0, 0, 0.3);"/>
+              X-RAY Lung Infection Detection
+            </h1>
+            <div class="container">
+              <h2
+                style="
+                  font-family: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro',
+                    'DejaVu Sans Condensed', Helvetica, Arial, 'sans-serif';
+                  color: darkgray;
+                "
+              >
+                No file choosen, yet!
+              </h2>
+            </div>
+            
+            <div>
+              
+              <label style="margin-left: 50px;width:13%;" for="file-ip-1" class="button">BROWSE</label>
+              
+              <input type="file" name="filename" id="file-ip-1" accept="image/*" onChange="showPreview(event);"/>
+            </div>
+            
+            <div class="preview">
+                {% if x == 1 %}
+                <img id="file-ip-1-preview" />
+                {% else %}
+                <img src="{{url_for('static', filename = filename)}}">
+                {% endif %} 
+            </div>
+            
+            <button type ="submit" name=getname() class="button" style="margin-left:230px;margin-top:-445px;width: 13%;background-color:rgb(115, 226, 4);" value="predict">PREDICT</button>
+          </div>
+        </form>
+        </div>
+      
+        <div class="img" style="height: 350px; margin-top: -550px;">
+        {% if res == 'covid' %}
+        <h3><b>Result:<br>COVID-19/Viral Pneumonia<br> Confidence: {{confidence}}%</b></h3>
+        <p style="font-size: large; font-family: 'PT sans'; text-align:start; margin-right: 200px;">
+          from the given image it is highly probable subject has <b><u>VIRAL PNEUMONIA</u></b>, most likely covid or influznia, most will be in couple of days, generally remedisvir and ivermectin(initally) will be prescibed by doctor.
+          <img src="{{url_for('static', filename = 'imgs/xray/lung2.jpg')}}" style="width:150px;height: 140px; margin-top: -35%; margin-left: 105%;" alt="lungs">
+        </p><hr>
+        <h3 style="margin-left: 30px;"><b> Instructions to Detect Infection Type</b></h3>
+        <p><ul style="font-size: large;">
+          <li>Click on 'BROWSE' button.</li>
+          <li>Select radiograph image(Format: .png, .jpg, .jpeg).</li>
+          <li>Click on 'PREDICT' button.</li>
+        </ul></p>
+        {% elif res == 'pneumonia' %}
+        <h3><b>Result:<br>Non-COVID/Bacterial Pneumonia<br> Confidence: {{confidence}}%</b></h3>
+        <p style="font-size: large; font-family: 'PT sans'; text-align:start; margin-right: 200px;">
+          from the given image it is highly probable subject has <b><u>BACTERIAL PNEUMONIA</u></b>, immdietality consult a doctor,take hot water steam, stay hydrated, eat a lot, most are treatble by strong doses of antibiotic(azithromycin).
+          <img src="{{url_for('static', filename = 'imgs/xray/lung2.jpg')}}" style="width:150px;height: 140px; margin-top: -35%; margin-left: 105%;" alt="lungs">
+        </p><hr>
+        <h3 style="margin-left: 30px;"><b> Instructions to Detect Infection Type</b></h3>
+        <p><ul style="font-size: large;">
+          <li>Click on 'BROWSE' button.</li>
+          <li>Select radiograph image(Format: .png, .jpg, .jpeg).</li>
+          <li>Click on 'PREDICT' button.</li>
+        </ul></p>
+        {% elif res == 'normal' %}
+        <h3><b>Result:<br>Healthy lungs<br>Confidence: {{confidence}}%</b></h3>
+        <p style="font-size: large; font-family: 'PT sans'; text-align:start; margin-right: 200px;">
+          From the given image it is highly probable subject has <br><b><u>NO PNEUMONIA</u></b>, however subject still needs to get vaccinated as soon as possible and if vaccinated stiil has to take care of himself.
+          <img src="{{url_for('static', filename = 'imgs/xray/lung2.jpg')}}" style="width:150px;height: 140px; margin-top: -35%; margin-left: 105%;" alt="lungs">
+        </p><hr>
+        <h3 style="margin-left: 30px;"><b> Instructions to Detect Infection Type</b></h3>
+        <p><ul style="font-size: large;">
+          <li>Click on 'BROWSE' button.</li>
+          <li>Select radiograph image(Format: .png, .jpg, .jpeg).</li>
+          <li>Click on 'PREDICT' button.</li>
+        </ul></p>
+        {% else %}
+          <h3><b>Basic Info</b></h3>
+          <p style="font-size: large; font-family: 'PT sans'; text-align:start; margin-right: 200px;">
+            A chest radiograph, called a <b>Chest X-RAY</b> (CXR), or chest film, is a projection radiograph of the chest used to diagnose conditions affecting the chest, its contents, and nearby structures. Chest radiographs are the most common film taken in medicine.<br>
+            <b>Classifier Classes: <br> Viral Pneumonia | Bacterial Pneumonia | Healthy Lungs</b>
+            <img src="{{url_for('static', filename = 'imgs/xray/lung2.jpg')}}" style="width:150px;height: 140px; margin-top: -80%; margin-left: 105%;" alt="lungs">
+          </p><hr style="margin-top: -30px;">
+          <h3 style="margin-left: 30px; margin-top: -10px;"><b> Instructions to Detect Infection Type</b></h3>
+          <p><ul style="font-size: large;">
+            <li>Click on 'BROWSE' button.</li>
+            <li>Select radiograph image(Format: .png, .jpg, .jpeg).</li>
+            <li>Click on 'PREDICT' button.</li>
+          </ul></p>
+        {% endif %}
+      </div>  
+    </div>
+    </div>
+  </body>
+</html>

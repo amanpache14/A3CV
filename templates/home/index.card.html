@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homepage</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home/style.css')}}" />
+  </head>
+  <body>
+    <div>
+      <img src="{{url_for('static',filename = 'imgs/home/homepage.png')}}">
+      <h1 style="
+      margin-top:-700px;
+      margin-left:470px;
+      padding: 2px;
+      font-size:51px;
+
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: 600;
+      text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191,
+      1px 3px 1px #919191, 1px 4px 1px #919191, 1px 5px 1px #919191,
+      1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 1px #919191,
+      1px 9px 1px #919191, 1px 20px 6px rgba(0, 0, 0, 0.5),
+      1px 22px 8px rgba(0, 0, 0, 0.4), 1px 24px 10px rgba(0, 0, 0, 0.3);"/>
+          COVID-Classifier
+        </h1>
+        
+      
+      <div>
+        
+      <div id="maincontainer">
+        <div class="thecard">
+          <div class="thefront"><h3 style="color: rgb(235, 44, 11);">X-ray lung infection detection</h3><img src="{{url_for('static',filename = 'imgs/home/lung1.jpg')}}"><p style="text-align:justify;padding:30px;font-size:medium;">This utility will help doctors/radiologist detection of lung infection for multiple frontal chest X-RAYS as we implement the<br> trained model for more than one image file.<br>This module will classify the patient's x-ray and give prediction if its infected or not i.e.[NORMAL|COVID-19|PNEUMONIA].<br>This module will serve in detection of ling infection ans will be beneficial to X-RAY radiologist as their time on observing lung patients X-RAY will get saved.This module is based on deep learning.</p></div>
+          <div class="theback"><h3 style="color:white;">X-ray lung infection detection</h3><img src="{{url_for('static',filename = 'imgs/home/lung2.jpg')}}"><p style="text-align:justify;padding:30px;font-size:medium;color: white;">This utility will help doctors/radiologist detection of lung infection for multiple frontal chest X-RAYS as we implement the<br> trained model for more than one image file.<br>This module will classify the patient's x-ray and give prediction if its infected or not i.e.[NORMAL|COVID-19|PNEUMONIA].<br>This module will serve in detection of ling infection ans will be beneficial to X-RAY radiologist as their time on observing lung patients X-RAY will get saved.This module is based on deep learning.</p></div>
+      </div>
+      
+        <div id="maincontainer1">
+          <div class="thecard">
+            <div class="thefront"><h3 style="color: rgb(235, 44, 11);">Realtime social distancing</h3><img src="{{url_for('static',filename = 'imgs/home/sd3.png')}}"><p style="text-align:justify;padding:30px;font-size:medium;">Our manuscript focuses on detecting if the people around are maintaining social distancing or not.Using our own self developed for detecting the frame of a person and displaying labels, they are marked as safe or unsafe if the distance is less than a certain value.<br>From this module Social Distancing violations will get detected and warning highlight will be shown, along with the person who is violating the social distancing Rule.​​</p></div>
+            <div class="theback"><h3 style="color: white;">Realtime social distancing</h3><img src="{{url_for('static',filename = 'imgs/home/sd2.png')}}"><p style="text-align:justify;padding:30px;font-size:medium;">Our manuscript focuses on detecting if the people around are maintaining social distancing or not.Using our own self developed for detecting the frame of a person and displaying labels, they are marked as safe or unsafe if the distance is less than a certain value.<br>From this module Social Distancing violations will get detected and warning highlight will be shown, along with the person who is violating the social distancing Rule.​​</p></div>
+        </div>
+        
+          <div id="maincontainer2">
+            <div class="thecard">
+              <div class="thefront"><h3 style="color: rgb(235, 44, 11);">Facemask Detection</h3><img src="{{url_for('static',filename = 'imgs/home/fm.jpg')}}"><p style="text-align:justify;padding:30px;font-size:medium;">In this module, we will be developing a face mask detector which can prove to be beneficial in distinguishing between faces with masks and faces with no masks. ​<br>This Module is able to detect if the person is wearing  face mask or not, it will be good for the surveillance were wearing facemask is mandatory specially in this COVID pandemic situation wearing face mask is Necessary so the surveillance manager can warn those who aren’t wearing facemask without need of  observing everyone face.​</p></div>
+              <div class="theback"><h3 style="color:white;">Facemask Detection</h3><img src="{{url_for('static',filename = 'imgs/home/fm2.jpg')}}"><p style="text-align:justify;padding:30px;font-size:medium;">In this module, we will be developing a face mask detector which can prove to be beneficial in distinguishing between faces with masks and faces with no masks. ​<br>This Module is able to detect if the person is wearing  face mask or not, it will be good for the surveillance were wearing facemask is mandatory specially in this COVID pandemic situation wearing face mask is Necessary so the surveillance manager can warn those who aren’t wearing facemask without need of  observing everyone face.​</p></div>
+        </div>
+        </div>     
+      
+    </div>
+  </body>
+</html>
