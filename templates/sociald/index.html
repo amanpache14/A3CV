@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Realtime social distancing</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/sociald/style.css')}}" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{url_for('static', filename = 'imgs/home/log.jpg')}}" type="image/x-icon">
+    <script>
+        var vidElement = null;
+
+        function start() {
+            var camAvailable =
+                navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
+            if (camAvailable) {
+                vidElement = document.getElementById("vid");
+                navigator.mediaDevices
+                    .getUserMedia({
+                        video: true
+                    })
+                    .then(function(stream) {
+                        vidElement.srcObject = stream;
+                        vidElement.play();
+                    });
+            }
+        }
+
+        function myfuction() {
+            var x = document.getElementById("maincontainer");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body style="background-color:#ff5252;">
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+            <a class="
+            w3-bar-item
+            w3-button
+            w3-hide-medium
+            w3-hide-large
+            w3-right
+            w3-padding-large
+            w3-hover-white
+            w3-large
+            w3-red
+          " href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i
+        ></a>
+            <a href="{{url_for('home')}}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white-hover">Home</a
+        >
+        <a
+          href="{{url_for('xray')}}"
+          class="
+            w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white
+          "
+          >X-Ray infection</a
+        >
+        <a
+          href="{{url_for('sociald')}}"
+          class="
+            w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white
+          "
+          >Social distancing</a
+        >
+        <a
+          href="{{url_for('maskd')}}"
+          class="
+            w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white
+          "
+          >Facemask detection</a
+        >
+      </div>
+
+    <div class="body" style="margin-top: 10px; height: 650px;">
+        <div>
+            <img
+              style="
+                height: 600px;
+                width: max-content;
+    
+                margin-top:2%;
+                margin-left: 50px;
+                margin-bottom: 50px;
+                margin-right: 50px;
+                border: 1px solid #bfbfbf;
+    
+                box-shadow: 0px 0px 20px #ee0707;
+              "
+              src="{{ url_for('static', filename='imgs/sociald/body2.png') }}"
+            />
+            <h1
+              style="
+                margin-top: -660px;
+                margin-left: 352px;
+                padding: 2px;
+                font-size: 60px;
+                color: rgb(8, 63, 109);
+                font-family:'PT sans';
+                font-weight: 600;
+                text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191,
+                  1px 3px 1px #919191, 1px 4px 1px #919191, 1px 5px 1px #919191,
+                  1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 1px #919191,
+                  1px 9px 1px #919191, 1px 20px 6px rgba(0, 0, 0, 0.5),
+                  1px 22px 8px rgba(0, 0, 0, 0.4), 1px 24px 10px rgba(0, 0, 0, 0.3);
+              "
+            >
+              Realtime Social Distancing
+            </h1>
+            <div>
+                <!--
+                  <video
+                  id="vid"
+                  autoplay
+                  style="
+                  width: 470px;
+                  height: 360px;
+                  border: 1px solid black;
+                  padding: 20px;
+                  margin-left: 100px;
+                  margin-top: 5px;"></video> 
+                -->
+                {% if x == 0 %}
+                  <img style="
+                  width: 470px;
+                  height: 360px;
+                  border: 1px solid black;
+                  border-radius: 20px;
+                  padding: 10px;
+                  margin-left: 100px;
+                  margin-top: 5px;"
+                  src="{{url_for('static',filename = 'imgs/sociald/nopreview.png')}}">
+                {% elif x==1 %}
+                  <!-- <script>
+                    var timeleft = 10;
+                    var downloadTimer = setInterval(function(){
+                      if(timeleft <= 0){
+                        clearInterval(downloadTimer);
+                        document.getElementById("countdown").innerHTML = "Finished";
+                      } else {
+                        document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+                      }
+                      timeleft -= 1;
+                    }, 1000);
+                  </script> -->
+                  <img
+                  src="{{url_for('video_feed')}}"
+                  style="
+                  width: 490px;
+                  height: 380px;
+                  border: 1px solid black;
+                  padding: 20px;
+                  margin-left: 100px;
+                  margin-top: 5px;" alt="Please wait...">
+                {% endif %}
+                
+
+                <div id="maincontainer">
+                    <div class="thecard">
+                        <div class="thefront"><h2 style="text-align: center;">KEEP DISTANCE</h2><p>Social distancing is one of the most effective tools we have to slow the spread of COVID-19.
+                            Aim to keep at least 6 feet away from the people outside of your household.
+                            <br>If COVID-19 is spreading in your community, stay safe by taking some simple precautions, such as physical distancing, wearing a mask, keeping rooms well ventilated, avoiding crowds, cleaning your hands,etc.</p><h2 style="text-align: center;color: crimson;margin-top:-12px;">MASK UP COVID DOWN</h2></div>
+                        <div class="theback"><h2 style="text-align: center;">HELLO!</h2><ul>
+                          <li>Click on the cross button to close this window</li>
+                          <li>For camera view click on 'START CAMERA'</li>
+                          <li>For Video file input click on 'UPLOAD'</li>
+                          <li>Click on 'START'</li>
+
+                        </ul><h2 style="text-align: center;color:white;font-size:25px;">PLEASE MAINTAIN SOCIAL DISTANCE </h2></p>
+                          <button style="height: 30px; border-radius: 10px; font-size: 20px;background-color: red;color: white;margin-top:-240px;position: fixed;margin-left: 400px;"onclick="myfuction();">X</button></div>
+                    </div>
+
+                </div>
+
+            </div>
+        <div>
+            <!-- <button
+            onclick="start();"
+            class="button"
+            style="background-color: whitesmoke">Start Camera</button> -->
+            <!-- <button type="submit" formaction="maskd" formmethod="GET" name="webcam" class="button" style="background-color: whitesmoke">Start Camera</button> -->
+            <form action="sociald" method="POST" enctype="multipart/form-data" style="margin-left: 8%;margin-top:1%  ;">
+              <input type="hidden" name="vidsource" value="webcam">
+              <input type="submit" class="button" value="start camera" style="background-color: whitesmoke">
+            </form>
+
+            <form style="margin-left: 160px; margin-top: -80px;" action="sociald" method="POST" enctype="multipart/form-data">
+              <label class="button"  for="file">Upload</label>
+              <input type="file" name="filename" class="button" id="file">
+              <input type="hidden" name="vidsource" value="video">
+              <input type="submit" onclick="stop();" class="button" value="start" style="margin-left: 5px; margin-top: -50px;background-color:deepskyblue;">
+            </form>
+            
+
+
+        </div>
+        <div class="div" style="margin-top:-425px ;">
+            <img style="height: 300px; width: 300px; margin-left: 660px"src="{{ url_for('static', filename='imgs/sociald/img4.jpg') }}"/>
+            <img style="height: 300px; width: 300px"src="{{ url_for('static', filename='imgs/sociald/img3.jpg') }}"/>
+            <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',sans-serif;margin-left: 970px;font-size: 18px;color: rgb(18, 109, 5);">1)Keep at least 6 feet away from<br />people outside of your household.<br />2)Ask for all home deliveries to be<br /> left at your door and keep being<br />  hygienic.Be smart with take-out.</h2>
+            <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',sans-serif;margin-left: 657px;margin-top: -140px;font-size: 18px;color: rgb(218, 28, 28);">1)Don't have physical contact with<br />non-family members.<br>2)Don't schedule appointments that <br>are not medically necessary.Don't<br>go to crowded establishments.</h2>
+        </div>
+    </div>
+  </body>
+</html>

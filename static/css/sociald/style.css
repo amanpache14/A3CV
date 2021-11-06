@@ -1,0 +1,115 @@
+.body {
+  width: min-content;
+  height: 634px;
+  /*background-image: url("image.png");*/
+  background-color: #09a2d1;
+  margin-left: 110px;
+  box-shadow: 0px 20px 20px  ;
+}
+#maincontainer {
+  position: absolute;
+  width: 450px;
+  height: 350px;
+  margin-top: -355px;
+  margin-left: 110px;
+  border: 1px solid #ffba01;
+  border-radius: 20px;
+  text-align: justify;
+}
+.thecard {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+
+  transition: all 0.5s ease;
+}
+.thecard:hover {
+  transform: rotatey(180deg);
+}
+.thefront {
+  position: absolute;
+  width: 96%;
+  height: 100%;
+  backface-visibility: hidden;
+  text-align: start;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 10px;
+  padding-left: 10px;
+
+  background: white;
+  color: #333;
+}
+.theback {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: deepskyblue;
+  backface-visibility: hidden;
+  text-align: start;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 10px;
+  padding-left: 10px;
+
+  color: white;
+  transform: rotateY(180deg);
+}
+.button {
+  margin-top: 10px;
+  background-color: #ffba01;
+  height: 50px;
+  width: 150px;
+
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: Uppercase;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-left: 100px;
+  margin-top: 30px;
+
+  cursor: pointer;
+}
+.button:hover {
+  color: #fff;
+  background: linear-gradient(to left, #f54ea2, 70%, #ff7676 105%);
+}
+.div {
+  margin-top: -400px;
+  margin-left: -50px;
+}
+input[type="file"]{
+  display: none;
+}
+label{
+  /* color: white;
+  height: 60px;
+  width: 250px;
+  background-color: turquoise;
+  position: absolute;
+  margin:auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+  display:inline-flex; 
+  align-items: center; 
+  justify-content: center;
+} 
+ 
+input[type=submit] {
+  background: none;
+  border: none;
+  pointer: default;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}

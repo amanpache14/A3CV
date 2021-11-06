@@ -1,0 +1,62 @@
+#maincontainer {
+  position: relative;
+  width: 390px;
+  height: 550px;
+  margin-top: 50px;
+  margin-left: 58px;
+}
+.thecard {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  transform-style: preserve-3d;
+
+  transition: all 0.5s ease;
+}
+.thecard:hover {
+  transform: rotatey(180deg);
+}
+.thefront {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+  font-family: "zilla slab", sans-serif;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+
+  background: white;
+  color: #333;
+}
+.theback {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #ff8801;
+  backface-visibility: hidden;
+  text-align: center;
+  font-family: "zilla slab", sans-serif;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+
+  color: white;
+  transform: rotateY(180deg);
+}
+#maincontainer1 {
+  position: relative;
+  width: 390px;
+  height: 550px;
+  margin-top: 40px;
+  margin-left: 425px;
+}
+#maincontainer2 {
+  position: relative;
+  width: 390px;
+  height: 550px;
+  margin-top: 40px;
+  margin-left: 425px;
+}
